@@ -50,7 +50,7 @@ ORDER BY
 SELECT
     student_no,
     point
-FROM
+FROM 
          tb_student
     JOIN tb_grade USING ( student_no )
 WHERE
