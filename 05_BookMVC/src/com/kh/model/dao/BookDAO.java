@@ -20,7 +20,9 @@ public class BookDAO implements BookDAOTemplate {
 
 	private Properties p = new Properties();
 	private ArrayList<Book> book = new ArrayList<Book>();
-
+	
+	
+	
 	public BookDAO() {
 		try {
 			p.load(new FileInputStream("src/config/jdbc.properties"));
@@ -37,6 +39,7 @@ public class BookDAO implements BookDAOTemplate {
 		Connection conn = DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASSWORD);
 		return conn;
 	}
+
 
 	@Override
 	public void closeAll(PreparedStatement st, Connection conn) throws SQLException {

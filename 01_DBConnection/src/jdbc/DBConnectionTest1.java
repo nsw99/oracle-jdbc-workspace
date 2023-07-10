@@ -1,11 +1,17 @@
 package jdbc;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Properties;
+
+import config.ServerInfo;
 
 public class DBConnectionTest1 {
 
@@ -19,13 +25,17 @@ public class DBConnectionTest1 {
 
 		try {
 			// 1. 드라이버를 로딩
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Properties p = new Properties();
+			p.load(new FileInputStream("src/config/jdbc.properties"));
+			Class.forName(ServerInfo.DRIVER_NAME);
 			System.out.println("Driver Loading!");
-
+			
 			// 2. 데이터베이스와 연결
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "kh", "kh");
 			System.out.println("DB Coneection!");
 
+			
+			
 			// 3. Statement 객체 생성 - SELECT
 			String query = "SELECT * FROM employee";
 			PreparedStatement st = conn.prepareStatement(query);
@@ -49,7 +59,12 @@ public class DBConnectionTest1 {
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 

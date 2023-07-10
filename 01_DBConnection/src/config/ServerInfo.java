@@ -10,3 +10,4 @@ public interface ServerInfo {
  String USER = "kh";
  String PASSWORD = "kh";
 }
+

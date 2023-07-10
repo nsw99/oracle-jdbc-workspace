@@ -189,7 +189,6 @@ FROM
 WHERE
     dept_title NOT IN '총무부';
     
-    
     /*
         2. 오라클 - 포괄 조인 / ANSI - 외부조인(OUTER JOIN)
             - 두 테이블 간의 JOIN 시 일치하지 않는 행도 포함시켜서 조회가 가능
@@ -387,6 +386,7 @@ FROM
 */
 -- 사번,사원명,부서명,직급명 조회
 -->> ANSI 구문
+
 SELECT
     emp_id,
     emp_name,
@@ -489,6 +489,7 @@ SELECT
     local_name,
     salary
 FROM
+
          employee
     JOIN job USING ( job_code )
     JOIN department ON ( dept_code = dept_id )
@@ -650,5 +651,3 @@ WHERE
     substr(emp_name, 1, 1) IN '형'
     OR substr(emp_name, 2, 1) IN '형'
        OR substr(emp_name, 3, 1) IN '형'
-
-

@@ -375,7 +375,7 @@ WHERE DEPT_CODE  NOT IN('D6','D8','D5');
 */
 
 
-
+OR로 해야되
 
 -- 직급코드가 J7이거나 J2인 사원들 중 급여가 200만원 이상인 사원들의 모든 컬럼조회
 SELECT *
@@ -399,6 +399,7 @@ WHERE SALARY*12 >= 30000000 AND BONUS IS NULL;
 SELECT MANAGER_ID,EMP_NAME,HIRE_DATE,DEPT_CODE
 FROM EMPLOYEE
 WHERE HIRE_DATE > '95/01/01' AND DEPT_CODE IS NOT NULL;
+
 
 
 --4. 급여가 200만원 이상 500만원 이하고 입사일이 '01/01/01'이상이고 보너스를 받지 않는
@@ -440,6 +441,7 @@ FROM EMPLOYEE
 ORDER BY BONUS DESC NULLS LAST ; // 내림차순 , NULL맨뒤에
 
  
+
  
  
 
